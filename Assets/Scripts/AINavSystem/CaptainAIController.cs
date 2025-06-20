@@ -11,6 +11,7 @@ public class CaptainAIController : MonoBehaviour
     public float chaseSpeed = 4f;
     public float gameOverDistance = 1.5f;
 
+    private bool isDefeated = false;
     private NavMeshAgent agent;
     private Animator animator;
 
@@ -52,7 +53,29 @@ public class CaptainAIController : MonoBehaviour
             animator.SetTrigger("Angry");
         }
     }
+    public void Defeat()
+    {
+        if (isDefeated) return;
+        isDefeated = true;
 
+        // Stop AI movement
+        if (agent != null)
+            agent.isStopped = true;
+
+        // Play death or defeat animation if available
+        if (animator != null)
+            animator.SetTrigger("Defeated"); // Make sure there's a trigger named "Defeated" in Animator
+
+        // Optional: disable collider so she can't be hit again
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+            col.enabled = false;
+
+        Debug.Log("💀 Captain defeated!");
+
+        // Trigger Game Win
+        GameManager.Instance?.ShowVictory();  // If you have a central game manager
+    }
     private void TriggerGameOver()
     {
         Debug.Log("Game Over: Caught by the captain!");
