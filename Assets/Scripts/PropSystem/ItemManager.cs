@@ -55,6 +55,16 @@ public class ItemManager : MonoBehaviour
             }
         }
     }
+    //Endpoint to get the number of props
+    public int GetCollectedCount()
+    {
+        int count = 0;
+        foreach (var item in itemTypes)
+        {
+            count += collected.ContainsKey(item.itemName) ? collected[item.itemName] : 0;
+        }
+        return count;
+    }
 
     public bool AllItemsCollected()
     {
@@ -66,4 +76,5 @@ public class ItemManager : MonoBehaviour
         }
         return true;
     }
+
 }

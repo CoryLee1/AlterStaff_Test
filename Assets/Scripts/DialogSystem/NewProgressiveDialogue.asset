@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794cbf8540088ab4b95045c844693f0b, type: 3}
+  m_Name: NewProgressiveDialogue
+  m_EditorClassIdentifier: 
+  linesWhen0Collected:
+  - "You want to get out of here, don\u2019t you? Figures."
+  - I used to train on this deck. Blade in hand, salt in my lungs. Thought strength
+    could cut through fate.
+  - "But the ocean... it doesn\u2019t care how sharp you are. Only how long you last."
+  - If you want to survive, start paying attention. The ship remembers more than
+    I do.
+  linesWhen1Collected:
+  - So you found that... I haven't touched it in years.
+  - "\rOnce they gave me medals. Told me I was brilliant. Brave. Indispensable.\r"
+  - "\r\rNow I'm just a ghost with too many stories and no one left to tell them
+    to."
+  - There's something buried in the gallery below. Go where the light used to shine.
+  linesWhen2Collected:
+  - "\r    \"Do you know what it\u2019s like to scream into silence?\",\r\n"
+  - "    \"They locked me in. Said it was for my own good. I broke the lock with
+    my bare hands, bleeding and laughing.\",\r"
+  - "    \"It was behind the pipes... somewhere wet, somewhere forgotten. Like me.\",\r"
+  - "\r    \"Funny how keys are never where you left them, especially when it\u2019s
+    your life on the line.\""
+  linesWhen3Collected:
+  - "    \"You\u2019ve found everything. You're ready. So why do I feel like I\u2019m
+    losing something?\",\r"
+  - "\r    \"You can take the boat. You earned it.\",\r"
+  - "\r    \"Or you can stay. I won\u2019t stop you. I just... won\u2019t ask again.\",\r\n"
+  - "Whatever you choose, don\u2019t forget me. I remember you already."
