@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class GunShooter : MonoBehaviour
 {
     [Header("Gun Settings")]
-    public float range = 30f;                    // Shooting range
+    public float range = 100f;                    // Shooting range
     public GameObject shootVFX;                  // Optional hit visual effect
 
     [Header("UI")]
