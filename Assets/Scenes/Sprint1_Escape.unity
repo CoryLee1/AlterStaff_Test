@@ -11526,6 +11526,7 @@ MonoBehaviour:
   chaseSpeed: 1
   gameOverDistance: 1.5
   isAggressive: 0
+  gameOverPanel: {fileID: 253518948}
 --- !u!1 &1727593562
 GameObject:
   m_ObjectHideFlags: 0

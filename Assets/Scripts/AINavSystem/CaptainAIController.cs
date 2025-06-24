@@ -16,6 +16,8 @@ public class CaptainAIController : MonoBehaviour
     private Animator animator;
 
     public bool isAggressive = false;
+    public GameObject gameOverPanel; // 拖 GameEndPanel 到这里
+
 
     void Start()
     {
@@ -38,8 +40,16 @@ public class CaptainAIController : MonoBehaviour
             float distance = Vector3.Distance(transform.position, player.position);
             if (distance <= gameOverDistance)
             {
-                TriggerGameOver();
+                agent.isStopped = true;  // 停止移动
+
+                if (animator != null)
+                {
+                    animator.SetTrigger("Punch");  // ✅ 攻击动画 Trigger
+                }
+
+                Invoke(nameof(TriggerGameOver), 1.5f); // 延迟结束游戏（留一点攻击时间）
             }
+
         }
     }
 
@@ -82,7 +92,10 @@ public class CaptainAIController : MonoBehaviour
         Debug.Log("Game Over: Caught by the captain!");
         agent.isStopped = true;
 
-        // Example: Reload scene or open Game Over UI
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // You can replace with GameOverUI
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);  // ✅ 显示 GameEndPanel
+        }
     }
+
 }
