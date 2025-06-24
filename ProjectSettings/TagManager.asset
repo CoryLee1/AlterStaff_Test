@@ -7,6 +7,11 @@ TagManager:
   - CinemachineTarget
   - Captain
   - Fish
+  - Room_Left_Locked
+  - Room_Right_Unlocked
+  - deckfront
+  - deckup_center
+  - Item
   layers:
   - Default
   - TransparentFX

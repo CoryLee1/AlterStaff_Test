@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794cbf8540088ab4b95045c844693f0b, type: 3}
+  m_Name: CaptainClues
+  m_EditorClassIdentifier: 
+  linesWhen0Collected:
+  - Ah, a new face aboard my ship!
+  - You look like you're lost, sailor.
+  - This is MY ship, and everything on it belongs to ME!
+  - Don't even think about touching anything!
+  linesWhen1Collected:
+  - Hey! I see you've been snooping around!
+  - You found one of my precious items, didn't you?
+  - Well, no matter. You'll never find them all!
+  - My treasures are well hidden across this ship!
+  linesWhen2Collected:
+  - What?! You found TWO of my items?
+  - You're more clever than I thought...
+  - But don't get too confident, landlubber!
+  - The most important things are still safely hidden!
+  linesWhen3Collected:
+  - Impossible! You found ALL my precious items!
+  - You think you're so smart, don't you?
+  - Well, even if you have those trinkets...
+  - You'll NEVER escape this ship alive!
+  keyLocationHintTemplate:
+  - Ha! You want to escape, do you?
+  - Well, you'll need the lifeboat key for that!
+  - And I've hidden it somewhere very special...
+  - It's in {keyLocation}, where you'll never think to look!
+  - Good luck finding it before I throw you overboard!
+  alternativeKeyHint:
+  - Looking for a way off my ship?
+  - The lifeboat won't do you any good without its key!
+  - I've placed it {keyLocation}...
+  - You'd have to be very lucky to stumble upon it!

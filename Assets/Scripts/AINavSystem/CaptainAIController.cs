@@ -50,9 +50,10 @@ public class CaptainAIController : MonoBehaviour
 
         if (animator != null)
         {
-            animator.SetTrigger("Angry");
+            animator.SetTrigger("StartChase");  
         }
     }
+
     public void Defeat()
     {
         if (isDefeated) return;
