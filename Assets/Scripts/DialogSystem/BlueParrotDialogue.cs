@@ -40,12 +40,18 @@ public class BlueParrotDialogue : MonoBehaviour
     private bool playerInRange = false;
     private bool hasGivenHint = false;
     private Transform player;
+    public GameObject nextButton;
+    public GameObject closeButton;
+
 
     // Static password for treasure chest
     public static string TreasurePassword = "739";
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
         if (dialoguePanel) dialoguePanel.SetActive(false);
@@ -101,9 +107,25 @@ public class BlueParrotDialogue : MonoBehaviour
             promptText.gameObject.SetActive(false);
         }
     }
+    // 用于按钮绑定：下一句
+    public void OnNextButtonPressed()
+    {
+        Debug.Log("Next button clicked");
+        if (isInDialogue)
+            ShowNextLine();
+    }
 
+    public void OnCloseButtonPressed()
+    {
+        Debug.Log("Close button clicked");
+        if (isInDialogue)
+            EndDialogue();
+    }
     void StartDialogue()
     {
+        Time.timeScale = 0f;
+        UIFocusManager.Instance?.EnterUIMode();
+
         // Check if player is examining treasure chest to give hint
         bool shouldGiveHint = ShouldGiveTreasureHint();
 
@@ -125,20 +147,22 @@ public class BlueParrotDialogue : MonoBehaviour
         if (promptText) promptText.gameObject.SetActive(false);
 
         ShowCurrentLine();
-
-        // Pause game and show cursor
-        Time.timeScale = 0f;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
+
 
     void ShowCurrentLine()
     {
         if (dialogueText && dialogueIndex < currentDialogue.Length)
         {
             dialogueText.text = currentDialogue[dialogueIndex];
+
+            // 控制按钮显隐
+            bool isLast = dialogueIndex == currentDialogue.Length - 1;
+            if (nextButton) nextButton.SetActive(!isLast);
+            if (closeButton) closeButton.SetActive(isLast);
         }
     }
+
 
     void ShowNextLine()
     {
@@ -156,21 +180,18 @@ public class BlueParrotDialogue : MonoBehaviour
 
     void EndDialogue()
     {
+        Time.timeScale = 1f;
+        UIFocusManager.Instance?.ExitUIMode();
         isInDialogue = false;
 
         if (dialoguePanel) dialoguePanel.SetActive(false);
 
-        // Resume game
-        Time.timeScale = 1f;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        // Show talk prompt again if player still in range
         if (playerInRange)
         {
             ShowTalkPrompt();
         }
     }
+
 
     bool ShouldGiveTreasureHint()
     {
@@ -218,5 +239,8 @@ public class BlueParrotDialogue : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, interactionRange);
     }
+
+
+
 }
 

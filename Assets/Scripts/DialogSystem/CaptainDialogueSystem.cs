@@ -301,4 +301,5 @@ public class CaptainDialogueSystem : MonoBehaviour
 
         return $"Items: {collected}/{total}, Key: {keyLocation}";
     }
+
 }
